@@ -1,0 +1,220 @@
+{% extends 'admin/layout.html' %}
+
+{% block body %}
+
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <h4 class="page-title">Dashboard</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Complaints</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+
+
+            
+                <!-- ============================================================== -->
+                <!-- Sales chart -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Table -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- title -->
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                        <h4 class="card-title">{{session.hostelname}}</h4>
+                                        <h5 class="card-subtitle">Complaints</h5>
+                                    </div>
+                                    {% if session.mainadmin %}
+                                    <div class="ml-auto">
+                                        <div class="dl">
+                                            <select class="custom-select" id='hostelname'>
+                                                <option>Choose Hostel</option>
+                                                <option href="{{ url_for('vikram') }}">VIKRAM SARABHAI HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('abdul') }}" >A. P. J ABDUL KALAM HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('devia') }}">DEVI AHILYA HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('cvraman') }}">C. V. RAMAN HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('homijangir') }}">HOMI JEHANGIR BHABHA HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('jcbose') }}">J. C. BOSE HALL OF RESIDENCE</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {%endif%}
+                                </div>
+                                <!-- title -->
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="table v-middle">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">Complain id</th>
+                                            <th class="border-top-0">User Name</th>
+                                            <th class="border-top-0">Subject</th>
+                                            <th class="border-top-0">Category</th>
+                                            <th class="border-top-0">Urgency</th>
+                                            <th class="border-top-0">Time of availibility</th>
+                                            <th class="border-top-0">Details</th>
+                                            <th class="border-top-0">Status</th>
+                                            <th class="border-top-0">Change Status</th>
+                                        </tr>
+                                    </thead>
+                                    {%for item in items%}
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="m-r-10"><a
+                                                            class="btn btn-circle d-flex btn-info text-white">{{item[0]}}</a>
+                                                    </div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16"></h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{item[1]}}</td>
+                                            <td>{{item[2]}}</td>
+                                            <td>
+                                                <h5 class="m-b-0">{{item[3]}}</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="m-b-0">{{item[4]}}</h5>
+                                            </td>
+                                            <td>{{item[5]}}</td>
+                                            <td>{{item[6]}}</td>
+                                            
+                                            
+                                            <td>
+                                                <label class="label label-danger">{{item[7]}}</label>
+                                            </td>
+                                            <td>
+                                                <a href="{{url_for('changestatus',cid=item[0])}}"><i class="ti-check"></i></a>
+                                            </td>
+                                        </tr>
+                                    {%endfor%}
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- Table -->
+                <!-- ============================================================== -->
+                <br><br><br>
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- title -->
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                        <h4 class="card-title">{{session.hostelname}}</h4>
+                                        <h5 class="card-subtitle">Suggestions</h5>
+                                    </div>
+                                    
+                                </div>
+                                <!-- title -->
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="table v-middle">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">Suggestions id</th>
+                                            <th class="border-top-0">User Name</th>
+                                            <th class="border-top-0">Subject</th>
+                                            <th class="border-top-0">Details</th>
+                                        </tr>
+                                    </thead>
+                                    {%for item in items1%}
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="m-r-10"><a
+                                                            class="btn btn-circle d-flex btn-info text-white">{{item[0]}}</a>
+                                                    </div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16"></h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{item[1]}}</td>
+                                            <td>{{item[2]}}</td>
+                                            <td>
+                                                <h5 class="m-b-0">{{item[3]}}</h5>
+                                            </td>
+                                        </tr>
+                                    {%endfor%}
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+
+
+
+
+                <!-- ============================================================== -->
+                <!-- Recent comment and chats -->
+                <!-- ============================================================== -->
+                
+                    <!-- column -->
+                    
+                <!-- ============================================================== -->
+                <!-- Recent comment and chats -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+{% endblock %}
+    

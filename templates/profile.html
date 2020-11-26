@@ -1,0 +1,136 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+
+
+<form method="POST" enctype="multipart/form-data">
+    <div id="profile"></div>
+<div class="container-fluid" style="background-color: yellow;" >
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+    {% for mesg in get_flashed_messages() %}
+    <div style="color: white; font-style: bold; background-color: black;text-align: center;"><h2>{{ mesg }}</h2></div>
+    {% endfor %}
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <div class="card-body" style="margin-right: 180px; margin-top: 50px;">
+                                <center class="m-t-30"> <img id="profileImage" style="cursor: pointer; border-radius: 50%;" src="{{ url_for('static', filename='img/users/'+x[0] | string+'.jpg')}}" onerror="this.src='/static/img/users/default.jpg'" width="150"  />
+                                    <input id="imageUpload" style="display: none;" type="file" name="file" placeholder="Photo" capture>
+                                    <h3 class="card-title m-t-10">{{x[3] |capitalize}}</h3>
+                                    <h5 class="card-subtitle">Student</h5>
+                                    <div class="row text-center justify-content-md-center">
+                                    </div>
+                                </center>
+                            </div>
+                            <div>
+                                <hr>
+                            </div>
+                            <div class="card-body"> <small class="text-muted">Email address </small>
+                                <h3>{{x[1]}}</h6> <small class="text-muted p-t-30 db">Phone</small>
+                                <h3>{{x[8]}}</h6> <small class="text-muted p-t-30 db">Address</small>
+                                <h3>{{x[7]}} {{x[6]}}</h6>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7" style="margin-top: 50px;">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label class="col-md-12">User Name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[0]}}" name="username" 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" style="margin-top: 10px;">Full Name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[3] |capitalize}}" name="name" 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" style="margin-top: 10px;">Roll No.</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[4]}}" name="rollno" 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" style="margin-top: 10px;">Branch</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[5] |upper}}" name="branch" 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" style="margin-top: 10px;">Hostel Name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[6] |upper}}" name="hostelname" 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" style="margin-top: 10px;">Room No.</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[7]}}" name="roomno" 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" style="margin-top: 10px;">Email</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[1]}}" name="email" readonly 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" style="margin-top: 10px;">Phone No</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[8]}}" name="mobileno" 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" style="margin-top: 10px;">Confirm Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="Current Password" name="password" 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12" style="margin-top: 20px; margin-bottom: 10px;">
+                                            <button type="submit" class="btn btn-success" >Update Profile</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</form>
+{% if scrollToAnchor %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.location.hash = '#{{ scrollToAnchor }}';
+    });
+</script>
+{% endif %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+</script>
+{% endblock %}

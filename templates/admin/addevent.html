@@ -1,0 +1,129 @@
+{% extends 'admin/layout.html' %}
+
+{% block body %}
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <form method="POST" enctype="multipart/form-data">  
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <h4 class="page-title">Add Event</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Add Event</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="text-right upgrade-btn">
+                            <a href="https://wrappixel.com/templates/xtremeadmin/" class="btn btn-danger text-white"
+                                target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <center class="m-t-30"> <img id="profileImage"  src="{{ url_for('static', filename='qwer.jpg')}}" onerror="this.src='/static/img/staff/default.jpg'" width="150"  />
+                                    <input id="imageUpload" style="display: none;" type="file" name="file" placeholder="Photo" capture>
+                                    <div class="row text-center justify-content-md-center">
+                                    </div>
+                                </center>
+                            </div>
+                            <div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+           
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Title</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder=""
+                                                class="form-control form-control-line" name="title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-success" >Add Event</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+            </div>
+    
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+</form>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+</script>
+   {% endblock %}

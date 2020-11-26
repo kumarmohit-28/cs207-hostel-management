@@ -1,0 +1,105 @@
+{% extends 'admin/layout.html' %}
+
+{% block body %}
+<div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <h4 class="page-title">Dashboard</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Staff Details</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <!--upgrade to pro-->
+                    
+                </div>
+            </div>
+    <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- title -->
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                        <h4 class="card-title">{{session.hostelname}}</h4>
+                                        <h5 class="card-subtitle">Staff</h5>
+                                    </div>
+                                    {% if session.mainadmin %}
+                                    <div class="ml-auto">
+                                        <div class="dl">
+                                            <select class="custom-select" id='hostelname'>
+                                                <option>Choose Hostel</option>
+                                                <option href="{{ url_for('vikramhs') }}">VIKRAM SARABHAI HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('abdulhs') }}" >A. P. J ABDUL KALAM HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('deviahs') }}">DEVI AHILYA HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('cvramanhs') }}">C. V. RAMAN HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('homijangirhs') }}">HOMI JEHANGIR BHABHA HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('jcbosehs') }}">J. C. BOSE HALL OF RESIDENCE</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {%endif%}
+                                </div>
+                                <!-- title -->
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="table v-middle">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">Image</th>
+                                            <th class="border-top-0">Name</th>
+                                            <th class="border-top-0">Post</th>
+                                            <th class="border-top-0">link</th>
+                                            <th class="border-top-0">Edit</th>
+                                            <th class="border-top-0">DELETE</th>
+                                        </tr>
+                                    </thead>
+                                    {%for item in items%}
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="m-r-10"><img src="{{ url_for('static', filename='img/staff/'+item[0] | string+'.jpg') }}"
+                                        class="rounded-circle" width="30px" height="30px" />
+                                                    </div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16"></h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{item[1]}}</td>
+                                            <td>{{item[2]}}</td>
+                                            <td>
+                                                <h5 class="m-b-0">{{item[4]}}</h5>
+                                            </td>
+                                            
+                                            <td>
+                                                <a href="{{url_for('staffprofile',sid=item[0])}}"><i class="ti-pencil-alt"></i></a>
+                                            </td>
+                                            <td>
+                                                <a href="{{url_for('deletehs',sid=item[0])}}"><i class="mdi-delete-forever"></i></a>
+                                            </td>
+                                        </tr>
+                                    {%endfor%}
+                                        
+                                    </tbody>
+                                </table>
+                                <li class="p-15 m-t-10" style="width: 300px;"><a href="{{url_for('addstaff')}}"
+                                class="btn btn-block create-btn text-white no-block d-flex align-items-center"><i
+                                    class="fa fa-plus-square"></i> <span class="hide-menu m-l-5">ADD NEW MEMBER</span> </a>
+                        </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

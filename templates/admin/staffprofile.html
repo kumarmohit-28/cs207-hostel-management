@@ -1,0 +1,163 @@
+{% extends 'admin/layout.html' %}
+
+{% block body %}
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <form method="POST" enctype="multipart/form-data">  
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <h4 class="page-title">Edit Details</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Edit Staff</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <center class="m-t-30"> <img id="profileImage"  src="{{ url_for('static', filename='img/staff/'+x[0] | string+'.jpg')}}" onerror="this.src='/static/img/staff/default.jpg'" width="150"  />
+                                    <input id="imageUpload" style="display: none;" type="file" name="file" placeholder="Photo" capture>
+                                    <h3 class="card-title m-t-10">{{x[1]}}</h3>
+                                    <h5 class="card-subtitle">{{x[2]}}</h5>
+                                    <div class="row text-center justify-content-md-center">
+                                    </div>
+                                </center>
+                            </div>
+                            <div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+           
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Full Name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[1]}}"
+                                                class="form-control form-control-line" name="fullname">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Post</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[2]}}"
+                                                class="form-control form-control-line" name="post"
+                                                id="example-email">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-12">Hostel Name</label>
+                                        <div class="dl">
+                                            <select  name="hostelname" style="background: transparent;color:#ccc; width: 390px;margin-top: 10px;margin-bottom:10px;margin-left: 45px;border: none;border-bottom: 1px solid #fff;">              
+                                                <option style="background-color: black;">A. P. J ABDUL KALAM HALL OF RESIDENCE</option>
+                                                <option style="background-color: black;">DEVI AHILYA HALL OF RESIDENCE</option>
+                                                <option style="background-color: black;">VIKRAM SARABHAI HALL OF RESIDENCE</option>
+                                                <option style="background-color: black;">C. V. RAMAN HALL OF RESIDENCE</option>
+                                                <option style="background-color: black;">HOMI JEHANGIR BHABHA HALL OF RESIDENCE</option>
+                                                <option style="background-color: black;">J. C. BOSE HALL OF RESIDENCE</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Link</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="{{x[4]}}" name="link" 
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    {%if session.updatep %}
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-success" >Update Profile</button>
+                                        </div>
+                                    </div>
+                                    {%else%}
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-success" >Add Member</button>
+                                        </div>
+                                    </div>
+                                    {%endif%}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+            </div>
+    
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+</form>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+</script>
+   {% endblock %}

@@ -1,0 +1,154 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<!-- PROJECT -->
+<section id="project" class="parallax-section">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-6 col-sm-6">
+                    <!-- PROJECT ITEM      class="image-popup"-->
+                    <div class="project-item">
+                         <a href="/apj">
+                              <img src="{{ url_for('static', filename='img/apjkalam.jpg') }}" class="img-responsive" alt="">
+                         
+                              <div class="project-overlay">
+                                   <div class="project-info">
+                                        <h1>A. P. J ABDUL KALAM</h1>
+                                        <h3>HALL OF RESIDENCE</h3>
+                                   </div>
+                              </div>
+                         </a>
+                    </div>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <!-- PROJECT ITEM -->
+                    <div class="project-item">
+                         <a href="/devi">
+                              <img src="{{ url_for('static', filename='img/devi.jpg') }}" class="img-responsive" alt="">
+                         
+                              <div class="project-overlay">
+                                   <div class="project-info">
+                                        <h1>DEVI AHILYA</h1>
+                                        <h3>HALL OF RESIDENCE</h3>
+                                   </div>
+                              </div>
+                         </a>
+                    </div>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <!-- PROJECT ITEM -->
+                    <div class="project-item">
+                         <a href="/vsb">
+                              <img src="{{ url_for('static', filename='img/vsb.jpg') }}" class="img-responsive" alt="">
+                         
+                              <div class="project-overlay">
+                                   <div class="project-info">
+                                        <h1>VIKRAM SARABHAI</h1>
+                                        <h3>HALL OF RESIDENCE</h3>
+                                   </div>
+                              </div>
+                         </a>
+                    </div>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <!-- PROJECT ITEM -->
+                    <div class="project-item">
+                         <a href="/cvr">
+                              <img src="{{ url_for('static', filename='img/cv.jpg') }}" class="img-responsive" alt="">
+                         
+                              <div class="project-overlay">
+                                   <div class="project-info">
+                                        <h1>C. V. RAMAN</h1>
+                                        <h3>HALL OF RESIDENCE</h3>
+                                   </div>
+                              </div>
+                         </a>
+                    </div>
+               </div>               
+
+               <div class="col-md-6 col-sm-6">
+                    <!-- PROJECT ITEM -->
+                    <div class="project-item">
+                         <a href="/homi">
+                              <img src="{{ url_for('static', filename='img/hjb.jpg') }}" class="img-responsive" alt="">
+                         
+                              <div class="project-overlay">
+                                   <div class="project-info">
+                                        <h1>HOMI JEHANGIR BHABHA</h1>
+                                        <h3>HALL OF RESIDENCE</h3>
+                                   </div>
+                              </div>
+                         </a>
+                    </div>
+               </div>            
+
+               <div class="col-md-6 col-sm-6">
+                    <!-- PROJECT ITEM -->
+                    <div class="project-item">
+                         <a href="/jcb">
+                              <img src="{{ url_for('static', filename='img/jcb.jpg') }}" class="img-responsive" alt="">
+                         
+                              <div class="project-overlay">
+                                   <div class="project-info">
+                                        <h1>J. C. BOSE</h1>
+                                        <h3>HALL OF RESIDENCE</h3>
+                                   </div>
+                              </div>
+                         </a>
+                    </div>
+               </div> 
+                             
+
+          </div>
+     </div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-4">
+      <h4 style="font-weight: 1000">Notification</h4>
+      <div class="panel panel-default" style="border-width: 1px; border-style: solid; margin-bottom: 10px; overflow-y: scroll; height: 200px; border-color: #b6b6b3">
+        <ul style="padding-left: 20px;">
+          {%for item in items%}
+          <li><a href="{{item[2]}}" target="_blank">{{item[1]}}</a>
+          </li>
+          {%endfor%}
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h4 style="font-weight: 1000">Undertakings</h4>
+      <div class="panel panel-default" style="border-width: 1px; border-style: solid; margin-bottom: 10px; overflow-y: scroll; height: 200px; border-color: #b6b6b3">
+        <ul style="padding-left: 20px;">
+          <a href="/static/docs/undertakings/Safety & Security Rules edited AG.pdf" target="_blank"><li>Safety and Security Rules</li></a>
+          <a href="/static/docs/undertakings/Anti ragging undertaking.pdf" target="_blank"><li>Anti-ragging and Anti-harassment</li></a>
+          <a href="/static/docs/undertakings/Dining Rules undertaking.pdf" target="_blank"><li>Dining Rules and Regulations</li></a>
+          <a href="/static/docs/undertakings/Internet usage undertaking.pdf" target="_blank"><li>Policy for Internet Access and Email Usage</li></a>
+          <a href="/static/docs/undertakings/Hostel_Rules.pdf" target="_blank"><li>Hall Rules</li></a>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h4 style="font-weight: 1000">Events</h4>
+      <div class="panel panel-default" style="border-width: 1px; border-style: solid; margin-bottom: 10px; overflow-y: scroll; height: 200px; border-color: #b6b6b3">
+        <ul style="padding-left: 20px;">
+          {%for item in items1%}
+          <a href="{{url_for('showimg',eid=item[0])}}" target="_blank"><li>{{item[1]}}</li></a>
+          {%endfor%}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+
+{% endblock %}

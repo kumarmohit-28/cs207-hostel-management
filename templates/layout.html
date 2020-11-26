@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>{{session.hostelname}} | IIT INDORE</title>
+<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/iitilogo.png') }}"></link>
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"/>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/magnific-popup.css') }}"/>
+
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/owl.theme.css') }}"/>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/owl.carousel.css')}}"/>
+
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer1.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer2.css') }}"/>
+
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tooplate-style.css') }}"/>
+
+
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+<div class="preloader">
+     <div class="spinner">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+
+<!-- MENU -->
+<div class="navbar custom-navbar navbar-fixed-top" role="navigation">
+     <div class="container">
+
+          <!-- NAVBAR HEADER -->
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <!-- lOGO -->
+               <a href="{{ url_for('home') }}">
+                    <img  style="width: 100px;height: 100px;" src="{{ url_for('static', filename='img/iitilogo.png') }}">
+               </a>
+               
+              
+          </div>
+
+          <!-- MENU LINKS   -->
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url_for('home') }}" class="smoothScroll">Home</a></li>
+                    <li><a href="{{ url_for('complaints') }}" class="smoothScroll">COMPLAINT</a></li>
+                    <li><a href="{{ url_for('suggetions') }}" class="smoothScroll">SUGGESTION</a></li>  
+                    <li><a href="{{ url_for('profile') }}" class="smoothScroll">PROFILE</a></li>
+                    <li>
+                         {% if not session.logged_in %}
+                        <a href="{{ url_for('login') }}">log in</a>
+                          {% else %}
+                         <a href="{{ url_for('logout') }}">log out</a>
+                          {% endif %}
+                    </li>
+                    
+               </ul>
+          </div>
+
+     </div>
+</div>
+
+
+<section id="home" class="parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-8 col-sm-12">
+                    <div class="home-text">
+                         <h1 style="color: white">{{session['hostelname']}}</h1>
+
+                         <p>HALL OF RESIDENCE</p>
+                         <ul class="section-btn">
+                              <a href="#about" class="smoothScroll"><span data-hover="Discover More">Discover More</span></a>
+                         </ul>
+                    </div>
+               </div>
+
+          </div>
+     </div>
+
+     <!-- Video -->
+     <video controls autoplay loop muted>
+          <source src="{{ url_for('static', filename='videos/hostel.mp4') }}" type="video/mp4">
+          Your browser does not support the video tag.
+     </video>
+</section>
+
+
+<section id="about" class="parallax-section">
+     <div class="container">
+          <div class="row">
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="about-info" style="color: blue">
+                         <h3>IIT INDORE</h3>
+                         <h1>भारतीय प्रौद्योगिकी संस्थान इंदौर <br>
+                          Indian Institute of Technology Indore <br></h1>
+                          <hr>
+                          {% if session.show %}
+                        <h1 style="color:red;font-weight: bold;">HALL OF RESIDENCE</h1><hr>
+                          {% else %}
+                         <h1 style="color:red;font-weight: bold;">{{session['hostelname']}} HALL OF RESIDENCE</h1><hr>
+                          {% endif %}
+                         
+                    </div>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+
+{% block body %}{% endblock %}
+
+<!-- FOOTER -->
+
+<footer style="background-color: black;">
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <ul class="footer-nav-left">
+                        <li>Contact: &nbsp;0731-2438700, Ext. 829</li>
+                        <a href="mailto:hostel@iiti.ac.in"><li>E-mail: &nbsp;hostel@iiti.ac.in</li></a>
+                        <li>Web: &nbsp; <a href="http://hostel.iiti.ac.in/" target="_blank">hostel.iiti.ac.in</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col span-1-of-3">
+                    <ul class="footer-nav-center">
+                        <li><a href="http://iiti.ac.in/" target="_blank"> IIT Indore Official Site</a></li>
+                        <li><a href="https://gymkhana-2a704.firebaseapp.com/" target="_blank"> Gymkhana IIT Indore</a></li>
+                    </ul>
+                </div>
+               
+                
+                <div class="col span-1-of-3">
+                    <ul class="footer-nav-right">
+                        <li>Security Supervisor:&nbsp; +91-6265224771</li>
+                        <li>Ambulance: &nbsp; 7509062832</li>
+                        <li>Medical: &nbsp; 0731-2438700, Ext. 987, 776</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    Copyright &copy; IIT Indore. All rights reserved.
+                </p>
+            </div>
+</footer>
+
+<!-- SCRIPTS -->
+
+<script src="{{url_for('static',filename='js/jquery.js')}}"></script>
+<script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/jquery.parallax.js')}}"></script>
+<script src="{{url_for('static',filename='js/owl.carousel.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/magnific-popup-options.js')}}"></script>
+<script src="{{url_for('static',filename='js/modernizr.custom.js')}}"></script>
+<script src="{{url_for('static',filename='js/smoothscroll.js')}}"></script>
+<script src="{{url_for('static',filename='js/custom.js')}}"></script>
+
+</body>
+</html>

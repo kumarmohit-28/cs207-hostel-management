@@ -1,0 +1,132 @@
+{% extends 'admin/layout.html' %}
+
+{% block body %}
+
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <h4 class="page-title">Students Details</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Student Details</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">{{session.hostelname}}</h4>
+                                
+                            </div>
+                                {% if session.mainadmin %}
+                                    <div class="ml-auto">
+                                        <div class="dl">
+                                            <select class="custom-select" id='hostelname'>
+                                                <option>Choose Hostel</option>
+                                                <option href="{{ url_for('vikrams') }}">VIKRAM SARABHAI HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('abduls') }}" >A. P. J ABDUL KALAM HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('devias') }}">DEVI AHILYA HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('cvramans') }}">C. V. RAMAN HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('homijangirs') }}">HOMI JEHANGIR BHABHA HALL OF RESIDENCE</option>
+                                                <option href="{{ url_for('jcboses') }}">J. C. BOSE HALL OF RESIDENCE</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {%endif%}
+                            <div><br></div>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">UserName</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Full Name</th>
+                                            <th scope="col">Roll No</th>
+                                            <th scope="col">Branch</th>
+                                            <th scope="col">Hostel Name</th>
+                                            <th scope="col">Room No</th>
+                                            <th scope="col">Mobile No</th>
+                                        </tr>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in items%}
+                                        <tr>
+                                            <th scope="row">{{item[0]}}</th>
+                                            <td>{{item[1]}}</td>
+                                            <td>{{item[3]|upper}}</td>
+                                            <td>{{item[4]}}</td>
+                                            <td>{{item[5]}}</td>
+                                            <td>{{item[6]}}</td>
+                                            <td>{{item[7]}}</td>
+                                            <td>{{item[8]}}</td>
+                                        </tr>
+                                        {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                       
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+{% endblock %}

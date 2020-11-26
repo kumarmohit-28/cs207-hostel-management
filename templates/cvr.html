@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+
+
+
+
+
+<section id="team" class="parallax-section">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-2 col-md-8 col-sm-12">
+                    <!-- SECTION TITLE -->
+                    <div class="section-title">
+
+                         <h2>OFFICE : {{session['hostelname']}} HALL OF RESIDENCE</h2>
+                    </div>
+               </div>
+
+                <div id="owl-team" class="owl-carousel">
+                    <div class="col-md-4 col-sm-4 item">
+                         <div class="team-item">
+                              <img src="{{ url_for('static', filename='img/murugesan.jpg') }}" class="img-responsive" alt="">
+                              <div class="team-overlay">
+                                   <ul class="social-icon">
+                                   	<li style="color: white;"><h2>Dr. Jaiprakash murugeasan</h2></li>
+                                   </ul>
+                              </div>
+                         </div>
+                         <p>Dr. Jaiprakash murugeasan</p>
+                         <a href="" ><h3>Warden</h3></a>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 item">
+                         <div class="team-item">
+                              <img src="{{ url_for('static', filename='img/saptarshi.jpg') }}" class="img-responsive" alt="">
+                              <div class="team-overlay">
+                                   <ul class="social-icon">
+                                   	<li style="color: white;"><h2>Dr. Saptarshi Ghosh</h2></li>
+                                   </ul>
+                              </div>
+                         </div>
+                         <p>Dr. Saptarshi Ghosh</p>
+                         <a href="https://sites.google.com/view/vinayrwth/" target="_blank"><h3>Associate Warden</h3></a>
+                    
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 item">
+                         <div class="team-item">
+                              <img src="{{ url_for('static', filename='img/Harshal.jpeg') }}" class="img-responsive" alt="">
+                              <div class="team-overlay">
+                                   <ul class="social-icon">
+                                   	<li style="color: white;"><h2>Ms. Harshal Raghuvanshi</h2></li>
+                                   </ul>
+                              </div>
+                         </div>
+                         <p>Ms. Harshal Raghuvanshi</p>
+                         <h3>Junior Assistant</h3>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 item">
+                         <div class="team-item">
+                              <img src="{{ url_for('static', filename='img/Santosh Gangle.jpeg') }}" class="img-responsive" alt="">
+                              <div class="team-overlay">
+                                   <ul class="social-icon">
+                                        <li style="color: white;"><h2>Mr. Santosh Gangle</h2></li>
+                                   </ul>
+                              </div>
+                         </div>
+                         <p>Mr. Santosh Gangle</p>
+                         <h3>Attendant</h3>
+                    </div>
+                    
+               </div>
+
+          </div>
+     </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
