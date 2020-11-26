@@ -1,0 +1,67 @@
+#----------DATABASE----------
+
+CREATE DATABASE hostel_db;
+USE hostel_db;
+
+
+#----------TABLES-----------
+
+
+CREATE TABLE if not exists users(username VARCHAR(255) NOT NULL PRIMARY KEY, email VARCHAR(255),password VARCHAR(255),name VARCHAR(255),rollno TEXT(50),branch VARCHAR(255),hostelname VARCHAR(255),roomno VARCHAR(255),mobileno TEXT(100));
+
+CREATE TABLE if not exists complaints(complaint_id INT PRIMARY KEY AUTO_INCREMENT, username VARCHAR(255), subject TEXT,category TEXT,urgency varchar(10), time_of_availability VARCHAR(255),details text,complain_status VARCHAR(255) default 'pending', FOREIGN KEY (username) REFERENCES users(username));
+
+CREATE TABLE if not exists suggetions(suggetion_id INT PRIMARY KEY AUTO_INCREMENT, username VARCHAR(255), subject TEXT,details text,FOREIGN KEY (username) REFERENCES users(username));
+
+CREATE TABLE IF NOT EXISTS admins(admin_id INT primary KEY auto_increment,adminname VARCHAR(255), password VARCHAR(255),mainadmin TEXT,hostelname VARCHAR(255),email VARCHAR(255));
+
+CREATE TABLE if not exists staff(staff_id INT PRIMARY KEY AUTO_INCREMENT, fullname VARCHAR(255), post TEXT,hostelname TEXT,link TEXT);
+
+CREATE TABLE if not exists notification(notification_id INT PRIMARY KEY AUTO_INCREMENT, title VARCHAR(255), url TEXT,showonhome VARCHAR(255) default 'yes');
+
+CREATE TABLE if not exists event(event_id INT PRIMARY KEY AUTO_INCREMENT, title VARCHAR(255),showonhome VARCHAR(255) default 'yes');
+
+
+#---------ADMINS--------
+
+
+INSERT INTO admins(adminname,password,mainadmin,email) VALUES('admin','admin123','1','admin@iiti.ac.in');
+
+INSERT INTO admins(adminname,password,hostelname,email) VALUES('admin_vsb','admin123','VIKRAM SARABHAI HALL OF RESIDENCE','admin_vsb@iiti.ac.in');
+
+INSERT INTO admins(adminname,password,hostelname,email) VALUES('admin_apj','admin123','A. P. J ABDUL KALAM HALL OF RESIDENCE','admin_apj@iiti.ac.in');
+
+INSERT INTO admins(adminname,password,hostelname,email) VALUES('admin_da','admin123','DEVI AHILYA HALL OF RESIDENCE','admin_da@iiti.ac.in');
+
+INSERT INTO admins(adminname,password,hostelname,email) VALUES('admin_cvr','admin123','C. V. RAMAN HALL OF RESIDENCE','admin_cvr@iiti.ac.in');
+
+INSERT INTO admins(adminname,password,hostelname,email) VALUES('admin_hjb','admin123','HOMI JEHANGIR BHABHA HALL OF RESIDENCE','admin_hjb@iiti.ac.in');
+
+INSERT INTO admins(adminname,password,hostelname,email) VALUES('admin_jcb','admin123','J. C. BOSE HALL OF RESIDENCE','admin_jcb@iiti.ac.in');
+
+
+#--------DUMMY STAFF--------
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff A', 'Junior Assistant', 'VIKRAM SARABHAI HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff B', 'Attendant', 'VIKRAM SARABHAI HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff C', 'Junior Assistant', 'A. P. J ABDUL KALAM HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff D', 'Attendant', 'A. P. J ABDUL KALAM HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff E', 'Junior Assistant', 'DEVI AHILYA HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff F', 'Attendant', 'DEVI AHILYA HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff G', 'Junior Assistant', 'C. V. RAMAN HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff H', 'Attendant', 'C. V. RAMAN HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff I', 'Junior Assistant', 'HOMI JEHANGIR BHABHA HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff J', 'Attendant', 'HOMI JEHANGIR BHABHA HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff K', 'Junior Assistant', 'J. C. BOSE HALL OF RESIDENCE');
+
+INSERT INTO staff(fullname,post, hostelname) VALUES('Staff L', 'Attendant', 'J. C. BOSE HALL OF RESIDENCE');
